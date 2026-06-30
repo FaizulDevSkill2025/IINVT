@@ -18,7 +18,7 @@
         }
 
         #sidebar-wrapper {
-        width: 230px;
+        width: 250px;
         min-height: 100vh;
         transition: all 0.3s;
         }
@@ -28,7 +28,7 @@
         }
 
         #wrapper.toggled #sidebar-wrapper {
-        margin-left: -250px;
+        margin-left: -240px;
         }
 
         /* Mobile */
@@ -48,18 +48,266 @@
 
             <hr/>
 
-            <div class="list-group list-group-flush">
-                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
-                     <i class="fa-solid fa-house"> </i> Home
-                </a>
-              
-                <br/>
+            <nav class="sidebar">
+                <div class="container-fluid">
+                    <ul class="nav flex-column">
 
-                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
-                     <i class="fa-solid fa-shield-alt"> </i> Privacy
-                </a>
+                        <!-- Deshboard Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fa-brands fa-windows"></i> Dashboard
+                            </a>
+                        </li>
+                        <!-- Parties Menu -->
+                        <li class="nav-item">
+                             
+                            <a class="nav-link" data-bs-toggle="collapse" href="#partiesMenu" role="button" aria-expanded="false" aria-controls="partiesMenu">
+                                <i class="fa-solid fa-users"> </i>  Parties <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <div class="collapse" id="partiesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+                                            <i class="fa-solid fa-user"></i> Clients
+                                         </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="partiesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-user"></i> Suppliers
+                                         </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Items Menu -->
+                        <li class="nav-item">
 
-            </div>
+                            <a class="nav-link" data-bs-toggle="collapse" href="#itemsMenu" role="button" aria-expanded="false" aria-controls="itemsMenu">
+                                <i class="fa-solid fa-box"></i> Items <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+                                            <i class="fa-solid fa-house"> </i> Inventory
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Godown
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Unit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Category
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Batch
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Print Labels
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="itemsMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Import Items
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Sales Menu -->
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#salesMenu" role="button" aria-expanded="false" aria-controls="salesMenu">
+                                <i class="fa-solid fa-cart-shopping"></i> Sales <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <div class="collapse" id="salesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+                                            <i class="fa-solid fa-house"> </i> Sales Invoice
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="salesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Sales Order
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="salesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Quatation 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="salesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> POS
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="salesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Payment In
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="salesMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Sales Return
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Purchase Menu -->
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#purchaseMenu" role="button" aria-expanded="false" aria-controls="purchaseMenu">
+                                <i class="fa-solid fa-truck"></i> Purchase <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <div class="collapse" id="purchaseMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+                                            <i class="fa-solid fa-house"> </i> Invoice
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="purchaseMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Payment Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="purchaseMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Return
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="purchaseMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Order
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Reports Menu -->
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#reportMenu" role="button" aria-expanded="false" aria-controls="reportMenu">
+                                <i class="fa-regular fa-file-lines"></i>  Report <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <div class="collapse" id="reportMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+                                            <i class="fa-solid fa-house"> </i> Home
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapse" id="reportMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                            <i class="fa-solid fa-shield-alt"> </i> Privacy
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- System Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#systemMenu" role="button" aria-expanded="false" aria-controls="systemMenu">
+                                <i class="fa-solid fa-gear"></i> System <i class="fa-solid fa-plus"></i>
+                            </a>
+                            <div class="collapse" id="systemMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="" asp-page="/Profile/ManageUsers">Manage Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="" asp-page="/Profile/ManageRoles">Manage Roles</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- Logout -->
+                        <li class="nav-item mt-3">
+                            <form asp-area="Identity" asp-page="/Account/Logout" method="post">
+                                <button type="submit" class="nav-link btn btn-link">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
         </div>
 
         <!-- Page Content -->
@@ -80,26 +328,7 @@
             </nav>
 
        </div>
-        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"> 
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> *@
-   
-
+      
        <div class="container">
            <main role="main" class="pb-3">
                @RenderBody()
