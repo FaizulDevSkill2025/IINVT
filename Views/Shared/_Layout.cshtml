@@ -5,15 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - IINVT</title> 
     <script type="importmap"></script>
+   
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/IINVT.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        #wrapper {
+        display: flex;
+        min-height: 100vh;
+        }
+
+        #sidebar-wrapper {
+        width: 230px;
+        min-height: 100vh;
+        transition: all 0.3s;
+        }
+
+        #page-content-wrapper {
+        flex: 1;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+        margin-left: -250px;
+        }
+
+        /* Mobile */
+        
+    </style>
+
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+    <div class="d-flex" id="wrapper">
+
+        <div id="sidebar-wrapper" class="bg-white text-warning">
+            <div class="sidebar-heading p-3 fs-4 fw-bold">
+                <i class="fa-solid fa-cart-flatbed"></i> IINVT
+            </div>
+
+            <hr/>
+
+            <div class="list-group list-group-flush">
+                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
+                     <i class="fa-solid fa-house"> </i> Home
+                </a>
+              
+                <br/>
+
+                <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
+                     <i class="fa-solid fa-shield-alt"> </i> Privacy
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" class="flex-grow-1">
+
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-light bg-light border-bottom">
+
+                <div class="container-fluid">
+
+                    <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation" id="menu-toggle">
+                           <i class="fa fa-angle-double-left"></i>
+                    </button>
+
+                </div>
+
+            </nav>
+
+       </div>
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"> 
             <div class="container-fluid">
-                @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">IINVT</a> *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,12 +97,15 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </nav> *@
+   
+
+       <div class="container">
+           <main role="main" class="pb-3">
+               @RenderBody()
+           </main>
+       </div>
+
     </div>
 
     <footer class="border-top footer text-muted">
@@ -43,9 +114,21 @@
         </div>
     </footer>
 
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
+
 </html>
+
+<script>
+
+    document.getElementById("menu-toggle")
+    .addEventListener("click", function () {
+    document.getElementById("wrapper")
+    .classList.toggle("toggled");
+    });
+</script>
