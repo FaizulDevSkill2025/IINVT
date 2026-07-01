@@ -15,6 +15,7 @@
         #wrapper {
         display: flex;
         min-height: 100vh;
+        font-size: 16px;
         }
 
         #sidebar-wrapper {
@@ -34,7 +35,7 @@
 
         a:hover {
         background-color: rgb(240, 222, 206);
-        font-size: 18px;
+        font-size: 16px;
         }
 
         /* Mobile */
@@ -297,10 +298,26 @@
                                 </ul>
                             </div>
                         </li>
-                        <!-- System Menu -->
+                        <!-- Settings Menu -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#invoiceMenu" role="button" aria-expanded="false" aria-controls="invoiceMenu">
+                                <i class="fa-solid fa-gear"></i> Settings
+                            </a>
+                            <div class="collapse" id="invoiceMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="" asp-page="/Profile/ManageUsers">Sattings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="" asp-page="/Profile/ManageRoles">Invoice Settings</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- User Menu -->
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="#systemMenu" role="button" aria-expanded="false" aria-controls="systemMenu">
-                                <i class="fa-solid fa-gear"></i> System 
+                                <i class="fa-solid fa-user-gear"></i> User Settings
                             </a>
                             <div class="collapse" id="systemMenu">
                                 <ul class="nav flex-column ms-3">
