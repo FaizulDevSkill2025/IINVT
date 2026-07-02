@@ -15,12 +15,12 @@
 
         #wrapper {
         display: flex;
-        min-height: 100vh;
+        min-height: 90vh;
         }
 
         #sidebar-wrapper {
         width: 250px;
-        min-height: 100vh;
+        min-height: 90vh;
         transition: all 0.3s;
         }
 
@@ -37,7 +37,16 @@
         }
 
         /* Mobile */
-        
+        @@media (max-width: 768px) {
+
+        #sidebar-wrapper {
+          margin-left: -250px;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+          margin-left: 0;
+        }
+        }
     </style>
 
 </head>
@@ -48,10 +57,10 @@
 
         <div id="sidebar-wrapper" class="bg-white text-warning">
             <div class="sidebar-heading p-3 fs-4 fw-bold">
-                <i class="fa-solid fa-cart-flatbed"></i> <span> IINVT</span>
+                <i class="fa-solid fa-cart-flatbed mt-1"></i> <span> IINVT</span>
             </div>
 
-            <hr/>
+            <hr class="mt-1" style="-webkit-box-shadow: 1px 2px 4px rgba(0,0,0,0.1);"/>
 
             <nav class="sidebar">
                 <div class="container-fluid">
@@ -328,7 +337,7 @@
                             </div>
                         </li>
                         <!-- Logout -->
-                        <li class="nav-item mt-3">
+                        <li class="nav-item mt-2">
                             <form asp-area="Identity" asp-page="/Account/Logout" method="post">
                                 <button type="submit" class="nav-link btn btn-link"> <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</button>
                             </form>
