@@ -7,7 +7,7 @@ namespace IINVT.StartupExtension
     {
         public static IServiceCollection AddDatabaseExtensionHelper(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDBContext>(opt =>
+            services.AddDbContext<ApplicationDbContext>(opt =>
             { 
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), sqlServerOptionsAction => sqlServerOptionsAction.EnableRetryOnFailure());
             
