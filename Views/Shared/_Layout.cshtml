@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<Users> signInManager;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,8 +14,7 @@
     <link rel="stylesheet" href="~/IINVT.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <style>
-
+  @*   <style>
         #wrapper {
         display: flex;
         min-height: 90vh;
@@ -38,7 +40,7 @@
 
         /* Mobile */
         @@media (max-width: 768px) {
-
+        
         #sidebar-wrapper {
           margin-left: -250px;
         }
@@ -47,15 +49,48 @@
           margin-left: 0;
         }
         }
-    </style>
+    </style> *@
 
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                   
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                           <li class="nav-item">
+                               <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                           </li>
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                 </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
 
-    <div class="d-flex" id="wrapper">
+        </main>
+    </div>
+
+    @* <div class="d-flex" id="wrapper">
 
         <div id="sidebar-wrapper" class="bg-white text-warning">
+
             <div class="sidebar-heading p-3 fs-4 fw-bold">
                 <i class="fa-solid fa-cart-flatbed mt-1"></i> <span> IINVT</span>
             </div>
@@ -73,7 +108,7 @@
 
             <hr class="mt-2" style="-webkit-box-shadow: 1px 2px 4px rgba(0,0,0,0.1);"/>
 
-            <nav class="sidebar">
+           <nav class="sidebar">
                 <div class="container-fluid">
                     <ul class="nav flex-column">
                         <!-- Deshboard Menu -->
@@ -84,7 +119,7 @@
                         </li>
                         <!-- Parties Menu -->
                         <li class="nav-item">
-                             
+
                             <a class="nav-link" data-bs-toggle="collapse" href="#partiesMenu" role="button" aria-expanded="false" aria-controls="partiesMenu">
                                 <i class="fa-solid fa-users me-1"></i> <span> Parties</span>
                             </a>
@@ -93,7 +128,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">
                                             <i class="fa-solid fa-arrow-right-long"></i> Clients
-                                         </a>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -102,7 +137,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
                                             <i class="fa-solid fa-arrow-right-long"></i> Suppliers
-                                         </a>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -234,7 +269,7 @@
                                         <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Privacy">
                                             <i class="fa-solid fa-arrow-right-long"></i> Sales Return
                                         </a>
-                                    </li> 
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -283,7 +318,6 @@
                         </li>
                         <!-- Reports Menu -->
                         <li class="nav-item">
-
                             <a class="nav-link" data-bs-toggle="collapse" href="#reportMenu" role="button" aria-expanded="false" aria-controls="reportMenu">
                                 <i class="fa-regular fa-file-lines me-1"></i> <span>Report</span>
                             </a>
@@ -339,17 +373,17 @@
                             <div class="collapse" id="systemMenu">
                                 <ul class="nav flex-column ms-3">
                                     <li class="nav-item">
-                                        <a class="nav-link" asp-area="" asp-page="/Profile/ManageUsers">Manage Users</a>
+                                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" asp-area="" asp-page="/Profile/ManageRoles">Manage Roles</a>
+                                        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <!-- Logout -->
                         <li class="nav-item mt-2">
-                            <form asp-area="Identity" asp-page="/Account/Logout" method="post">
+                            <form asp-area="Identity" asp-controller="Account" asp-action="Logout">
                                 <button type="submit" class="nav-link btn btn-link"> <i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</button>
                             </form>
                         </li>
@@ -358,14 +392,11 @@
             </nav>
 
         </div>
-
-       
+ 
         <!-- Page Content -->
         <div id="page-content-wrapper" class="flex-grow-1">
-
             <!-- Top Navbar -->
             <nav class="navbar navbar-light bg-light border-bottom">
-
                 <div class="container-fluid">
 
                     <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -374,19 +405,12 @@
                     </button>
 
                 </div>
-
             </nav>
-
         </div>
 
       
-       <div class="container">
-           <main role="main" class="pb-3">
-               @RenderBody()
-           </main>
-       </div>
-
-    </div>
+        
+    </div> *@
 
     <footer class="border-top footer text-muted">
         <div class="container" style="text-align:center; color:orange ">
@@ -394,20 +418,23 @@
         </div>
     </footer>
 
-    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-
+    
 </body>
+
+
+
 
 </html>
 
+@* 
 <script>
-    document.getElementById("menu-toggle")
+     document.getElementById("menu-toggle")
     .addEventListener("click", function () {
     document.getElementById("wrapper")
     .classList.toggle("toggled");
     });
-</script>
+</script> *@
