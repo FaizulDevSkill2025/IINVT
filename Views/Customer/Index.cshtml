@@ -1,0 +1,256 @@
+﻿@model IEnumerable<IINVT.Models.Customer>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+
+    body3 {
+        margin-top: 20px;
+        background-color: #f7f7ff;
+    }
+
+    .radius-10 {
+        border-radius: 10px !important;
+    }
+
+    .border-info {
+        border-left: 5px solid #0dcaf0 !important;
+    }
+
+    .border-danger {
+        border-left: 5px solid #fd3550 !important;
+    }
+
+    .border-success {
+        border-left: 5px solid #15ca20 !important;
+    }
+
+    .border-warning {
+        border-left: 5px solid #ffc107 !important;
+    }
+
+
+    .card {
+        position: relative;
+        display: grid;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0px solid rgba(0, 0, 0, 0);
+        border-radius: .25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+    }
+
+    .bg-gradient-scooter {
+        background: #17ead9;
+        background: -webkit-linear-gradient( 45deg, #17ead9, #6078ea) !important;
+        background: linear-gradient( 45deg, #17ead9, #6078ea) !important;
+    }
+
+    .widgets-icons-2 {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ededed;
+        font-size: 27px;
+        border-radius: 10px;
+    }
+
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+
+    .text-white {
+        color: #fff !important;
+    }
+
+    .ms-auto {
+        margin-left: auto !important;
+    }
+
+    .bg-gradient-bloody {
+        background: #f54ea2;
+        background: -webkit-linear-gradient( 45deg, #f54ea2, #ff7676) !important;
+        background: linear-gradient( 45deg, #f54ea2, #ff7676) !important;
+    }
+
+    .bg-gradient-ohhappiness {
+        background: #00b09b;
+        background: -webkit-linear-gradient( 45deg, #00b09b, #96c93d) !important;
+        background: linear-gradient( 45deg, #00b09b, #96c93d) !important;
+    }
+
+    .bg-gradient-blooker {
+        background: #ffdf40;
+        background: -webkit-linear-gradient( 45deg, #ffdf40, #ff8359) !important;
+        background: linear-gradient( 45deg, #ffdf40, #ff8359) !important;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+<div class="card border-0 shadow-sm p-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4 class="text-uppercase fw-bold text-secondary mb-0"><i class="fa-solid fa-list me-2"></i>Customers</h4>
+        <a asp-action="Create" class="btn btn-primary text-uppercase fw-bold shadow-sm px-3">
+            <i class="fa-solid fa-plus"></i> Customer
+        </a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-4 row-cols-md-4">
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-info">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary">Total Active</p>
+                            <h4 class="my-1 text-info">40</h4>
+                        </div>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                            <i class="fa fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-success">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary">Total Local</p>
+                            <h4 class="my-1 text-success">34</h4>
+                        </div>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
+                            <i class="fa fa-bar-chart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-warning">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary">Total Foreign</p>
+                            <h4 class="my-1 text-warning">800</h4>
+                        </div>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                            <i class="fa fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card radius-10 border-start border-0 border-3 border-danger">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <p class="mb-0 text-secondary">Total Entry</p>
+                            <h4 class="my-1 text-danger">1000</h4>
+                        </div>
+                        <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
+                            <i class="fa fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4 align-items-center">
+        <div class="col-md-9">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by Code, Name, Phone, Email...">
+                <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <select class="form-select">
+                <option selected>All Types</option>
+                <option value="Consumer">Consumer</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle border-top">
+            <thead class="table-light text-secondary text-uppercase small">
+                <tr>
+                    <th style="width: 50px;">#</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th class="text-center" style="width: 150px;">Action</th>
+                </tr>
+            </thead>
+            <tbody class="small">
+                @{
+                    int index = 1;
+                }
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@(index++)</td>
+                        <td class="fw-bold text-primary">@customer.Code</td>
+                        <td>@customer.Name</td>
+                        <td>@customer.Type</td>
+                        <td>@customer.Address</td>
+                        <td>@customer.Phone</td>
+                        <td>@customer.Email</td>
+                        <td class="text-center">
+                            <div class="btn-group btn-group-sm">
+                                <a asp-action="Edit" asp-route-id="@customer.CustomerID" class="btn btn-outline-primary border-0 rounded-circle me-1" title="Edit"><i class="fa-solid fa-pencil"></i></a>
+                                <a asp-action="Delete" asp-route-id="@customer.CustomerID" class="btn btn-outline-danger border-0 rounded-circle me-1" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3 small text-muted">
+        <div>
+            Showing 1 to @Model.Count() of @Model.Count() entries
+        </div>
+
+        <nav>
+            <ul class="pagination pagination-sm mb-0">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+
+
+
+
+
+
+

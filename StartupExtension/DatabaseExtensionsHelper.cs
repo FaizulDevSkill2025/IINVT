@@ -1,5 +1,7 @@
 ﻿using IINVT.Data;
+using IINVT.Interfaces;
 using IINVT.Models;
+using IINVT.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -37,13 +39,12 @@ namespace IINVT.StartupExtension
             options.AccessDeniedPath = "/Account/AccessDenied";
            });
 
+            services.AddScoped(typeof(IGeneric<>), typeof(GenericRepository<>));
 
-
-
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.LoginPath = "/Identity/Account/Login";
-            });
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.LoginPath = "/Identity/Account/Login";
+            //});
 
             return services;
         }
