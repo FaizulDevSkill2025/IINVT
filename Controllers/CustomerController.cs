@@ -25,10 +25,6 @@ namespace IINVT.Controllers
             return View(customers);
         }
 
-        //public new IEnumerable<Customer> GetAll()
-        //{
-        //    return _repository.GetAll();
-        //}
 
         [HttpGet("{id}")]
         public new Customer GetById(int id)
@@ -36,11 +32,67 @@ namespace IINVT.Controllers
             return _repository.GetById(id);
         }
 
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Create(Customer customer)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _repository.Add(customer);
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
+            return View(customer);
+        }
+
+        /*
         [HttpPost]
         public new void Add(Customer customer)
         {
             _repository.Add(customer);
         }
+        */
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var customer = _repository.GetById(id);
+            return View(customer);
+        }
+  
+        [HttpPost]
+
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Edit(Customer customer)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                _repository.Update(customer);
+
+
+                return RedirectToAction(nameof(Index));
+
+            }
+
+
+            return View(customer);
+
+        }
+
 
         [HttpPut]
         public new void Update(Customer customer)
@@ -48,11 +100,39 @@ namespace IINVT.Controllers
             _repository.Update(customer);
         }
 
-        [HttpDelete]
-        public new void Delete(Customer customer)
+        public IActionResult Details(int id)
         {
-            _repository.Delete(customer);
+            var customer =  _repository.GetById(id);
+            return View(customer);
         }
+
+
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+
+            var customer = _repository.GetById(id);
+            return View(customer);
+
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+
+            var customer = _repository.GetById(id);
+            _repository.Delete(customer);
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+        //[HttpDelete]
+        //public new void Delete(Customer customer)
+        //{
+        //    _repository.Delete(customer);
+        //}
 
     }
 }

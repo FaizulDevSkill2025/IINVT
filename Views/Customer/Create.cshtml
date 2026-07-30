@@ -1,0 +1,77 @@
+﻿@model IINVT.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<link href="~/css/customer.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+
+    <div class="container">
+        <header>Customer Details</header>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="form first">
+                <div class="row">
+                    <div class="fields">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="input-field">
+                            <label asp-for="Code">Code</label>
+                            <input asp-for="Code" type="text" placeholder="Enter Code" />
+                        </div>
+                        <span asp-validation-for="Code" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" type="text" placeholder="Enter Producer Name" />
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Type">Type</label>
+                            <input asp-for="Type" type="text" placeholder="Enter Type" />
+                        </div>
+                        <span asp-validation-for="Type" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Address">Address</label>
+                            <input asp-for="Address" type="text" placeholder="Enter Address" />
+                        </div>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Phone">Phone</label>
+                            <input asp-for="Phone" type="text" placeholder="Enter Phone" />
+                        </div>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Email">Email</label>
+                            <input asp-for="Email" type="email" placeholder="Enter Email" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+ 
+
+   
+
+
+
+
+
+

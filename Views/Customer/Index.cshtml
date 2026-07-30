@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<style>
+@* <style>
 
     body3 {
         margin-top: 20px;
@@ -94,23 +94,23 @@
         background: linear-gradient( 45deg, #ffdf40, #ff8359) !important;
     }
 
-</style>
+</style> *@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
-<div class="card border-0 shadow-sm p-4">
+<div class="card border-0 shadow-sm p-1">
 
     <div class="d-flex justify-content-between align-items-center mb-2">
         <h4 class="text-uppercase fw-bold text-secondary mb-0"><i class="fa-solid fa-list me-2"></i>Customers</h4>
-        <a asp-action="Create" class="btn btn-primary text-uppercase fw-bold shadow-sm px-3">
+        <a asp-action="Create" class="btn btn-primary text-uppercase fw-bold shadow-sm px-2">
             <i class="fa-solid fa-plus"></i> Customer
         </a>
     </div>
-
-    <div class="row row-cols-1 row-cols-md-4 row-cols-md-4">
+    
+    @* <div class="row row-cols-1 row-cols-md-4 row-cols-md-4">
         <div class="col">
             <div class="card radius-10 border-start border-0 border-3 border-info">
                 <div class="card-body">
@@ -172,7 +172,39 @@
                 </div>
             </div>
         </div>
+    </div> *@
+
+    <div class="row g-3 mb-4">
+        <!-- Total Customers Card -->
+        <div class="col-sm-3">
+            <div class="card p-3 border-0 border-start border-4 border-danger shadow-sm h-100">
+                <div class="text-muted text-uppercase small fw-bold text-truncate">Total Customers</div>
+                @* <div class="fs-3 fw-bold text-dark">@Model.TotalCustomers</div> *@
+            </div>
+        </div>
+        <!-- Total Receivable Card -->
+        <div class="col-sm-3">
+            <div class="card p-3 border-0 border-start border-4 border-primary shadow-sm h-100">
+                <div class="text-muted text-uppercase small fw-bold text-truncate"> Total Receivable </div>
+                <@* div class="fs-3 fw-bold text-dark">৳ @Model.TotalReceivable.ToString("N2")</div> *@
+            </div>
+        </div>
+        <!-- Total Paid Card -->
+        <div class="col-sm-3">
+            <div class="card p-3 border-0 border-start border-4 border-success shadow-sm h-100">
+                <div class="text-muted text-uppercase small fw-bold text-truncate"> Total Paid </div>
+                @* <div class="fs-3 fw-bold text-dark">৳ @Model.TotalPaid.ToString("N2")</div> *@
+            </div>
+        </div>
+        <!-- With Due Card -->
+        <div class="col-sm-3">
+            <div class="card p-3 border-0 border-start border-4 border-warning shadow-sm h-100">
+                <div class="text-muted text-uppercase small fw-bold text-truncate">With Due</div>
+                @* <div class="fs-3 fw-bold text-dark">@Model.CustomersWithDue</div> *@
+            </div>
+        </div>
     </div>
+
 
     <div class="row g-3 mb-4 align-items-center">
         <div class="col-md-9">
@@ -232,6 +264,7 @@
     </div>
 
     <div class="d-flex justify-content-between align-items-center mt-3 small text-muted">
+           
         <div>
             Showing 1 to @Model.Count() of @Model.Count() entries
         </div>
@@ -244,6 +277,7 @@
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
         </nav>
+
     </div>
 
 </div>

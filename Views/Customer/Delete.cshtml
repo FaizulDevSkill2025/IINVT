@@ -1,0 +1,78 @@
+﻿@model IINVT.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link href="~/css/customer.css" rel="stylesheet" />
+
+
+<body>
+    <div>
+
+        <h4>Customer Information</h4>
+
+        <hr />
+
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </dt>
+            <dt class="col-sm-10">
+                @Html.DisplayFor(model => model.CustomerID)
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+            <dt class="col-sm-10">
+                @Html.DisplayFor(model => model.Code)
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" method="post" onsubmit="return confirm('Are You Sure ? You Want to Delete this Record !');">
+            <input type="hidden" asp-for="CustomerID" />
+            <div class="button" asp-action="Delete">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+@if (TempData["Success"] != null)
+{
+    <script>
+        Swal.fire("Success!", "@TempData["Success"]", "success");
+    </script>
+}
