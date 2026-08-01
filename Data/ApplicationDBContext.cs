@@ -10,5 +10,6 @@ namespace IINVT.Data
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
         public virtual DbSet<Customer> customer{ get; set; }
         public virtual DbSet<Supplier> supplier { get; set; }
+        public virtual DbSet<Item> item { get; set; }
     }
 }

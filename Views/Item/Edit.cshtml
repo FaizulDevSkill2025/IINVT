@@ -1,0 +1,80 @@
+﻿@model IINVT.Models.Item
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link href="~/css/customer.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+
+    <div class="container">
+        <header>Item Details</header>
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div class="form first">
+                <div class="row">
+                    <div class="fields">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="input-field">
+                            <label asp-for="ItemID">Item ID</label>
+                            <input asp-for="ItemID" type="text" placeholder="Enter Item ID" />
+                        </div>
+                        <span asp-validation-for="ItemID" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="CatID">Category ID</label>
+                            <input asp-for="CatID" type="text" placeholder="Enter Category ID" />
+                        </div>
+                        <span asp-validation-for="CatID" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="SubCatID">Sub Category ID</label>
+                            <input asp-for="SubCatID" type="text" placeholder="Enter Sub Category ID" />
+                        </div>
+                        <span asp-validation-for="SubCatID" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Itemname">Item Name</label>
+                            <input asp-for="Itemname" type="text" placeholder="Enter Item Name" />
+                        </div>
+                        <span asp-validation-for="Itemname" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Unit">Unit</label>
+                            <input asp-for="Unit" type="text" placeholder="Enter Unit" />
+                        </div>
+                        <span asp-validation-for="Unit" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="Description">Description</label>
+                            <input asp-for="Description" type="text" placeholder="Enter Description" />
+                        </div>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-success">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+ 
+
+   
+
+
+
+
+
+
+
+

@@ -9,9 +9,190 @@
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
+        background-color: #ceeef8;
     }
 </style>
 
-<div class="text-center">
-      <h1 class="display-4">Inventory Management System</h1>
+
+<style>
+
+    #icon {
+        margin-top:20px;
+        font-size:50px;
+        color:#0026ff;
+    }
+
+    #icon:hover {
+        color: red;
+        font-size:60px;
+    }
+
+    #card {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        background-color:#f8e570;
+    }
+
+    .card-body {
+        background-color: #fbf1f1;
+    }
+
+    .card-status:before {
+        background:#0a2f8d;
+        content: "";
+        position: absolute;
+        height: 80%;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .card-collect:before {
+        background:#0d7b2c;
+        content: "";
+        position: absolute;
+        height: 80%;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .card-file:before {
+        background:#d8de00;
+        content: "";
+        position: absolute;
+        height: 80%;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .card-question:before {
+        background:#25be88;
+        content: "";
+        position: absolute;
+        height: 80%;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .card-small:before {
+        background:#ff006e;
+        content: "";
+        position: absolute;
+        height: 80%;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+</style>
+
+<div class="text-center col-sm-12">
+    <h1 class="display-4">Inventory Management System</h1>
+</div>
+
+<div class="row" style="vertical-align:middle">
+
+    <div class="col-lg-2">
+        <div class="card" style="height:180px">
+            <div class="card-body card-small">
+                <h2 style=" font-size: 24px; text-align: center">Supplier</h2>
+                <div style="text-align:center">
+                    <a asp-action="Index" asp-controller="Supplier"><i id="icon" class="fa fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2">
+        <div class="card" style="height:180px">
+            <div class="card-body card-status">
+                <h2 style="font-size:24px; text-align:center">Customer</h2>
+                <div style="text-align:center">
+                    <a asp-action="Index" asp-controller="Customer"><i id="icon" class="fa fa-users"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2">
+        <div class="card" style="height:180px">
+            <div class="card-body card-collect">
+                <h2 style="font-size: 24px; text-align: center">Item</h2>
+                <div style="text-align:center">
+                    <a asp-action="Index" asp-controller="Item"><i id="icon" class="fa-solid fa-box"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2">
+        <div class="card" style="height:180px">
+            <div class="card-body card-file">
+                <h2 style="font-size: 24px; text-align: center">Stock</h2>
+                <div style="text-align:center">
+                    <a asp-action="Index" asp-controller="Stock"><i id="icon" class="far fa-address-book"></i></a>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div class="col-lg-2">
+        <div class="card" style="height:180px">
+            <div class="card-body card-question">
+                <h2 style="font-size: 24px; text-align: center">Purchase</h2>
+                <div style="text-align:center">
+                    <a asp-action="Index" asp-controller="Purchase"><i id="icon" class="fa-solid fa-bag-shopping"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-2">
+        <div class="card" style="height:180px">
+            <div class="card-body card-question">
+                <h2 style="font-size: 24px; text-align: center">Sales</h2>
+                <div style="text-align:center">
+                    <a asp-action="Index" asp-controller="Sale"><i id="icon" class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* <i id="icon" class="fa-solid fa-cart-shopping"></i> *@
+   @*  <i class="fas fa-tasks"></i> *@
+   @*  <i id="icon" class="fas fa-tools"></i> *@
+    
+
+@*    
+
+    *@
+
 </div>
