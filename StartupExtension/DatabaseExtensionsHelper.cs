@@ -41,11 +41,6 @@ namespace IINVT.StartupExtension
 
             services.AddScoped(typeof(IGeneric<>), typeof(GenericRepository<>));
 
-            //services.ConfigureApplicationCookie(options =>
-            //{
-            //    options.LoginPath = "/Identity/Account/Login";
-            //});
-
             return services;
         }
     }

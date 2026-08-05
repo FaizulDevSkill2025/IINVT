@@ -11,5 +11,8 @@ namespace IINVT.Data
         public virtual DbSet<Customer> customer{ get; set; }
         public virtual DbSet<Supplier> supplier { get; set; }
         public virtual DbSet<Item> item { get; set; }
+        public virtual DbSet<Unit> unit { get; set; }
+        public virtual DbSet<Category> category { get; set; }
+        public virtual DbSet<Subcategory> subcategory { get; set; }
     }
 }

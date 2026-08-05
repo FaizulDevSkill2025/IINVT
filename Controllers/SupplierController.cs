@@ -7,7 +7,7 @@ namespace IINVT.Controllers
 {
     public class SupplierController : BaseController<Supplier>
     {
-        protected readonly GenericRepository<Supplier> _customerRepository;
+        protected readonly GenericRepository<Supplier> _supplierRepository;
 
         public SupplierController(IGeneric<Supplier> repository) : base(repository)
         {

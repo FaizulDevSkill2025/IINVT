@@ -25,28 +25,41 @@
                         <span asp-validation-for="ItemID" class="text-danger"></span>
 
                         <div class="input-field">
-                            <label asp-for="CatID">Category ID</label>
-                            <input asp-for="CatID" type="text" placeholder="Enter Category ID" />
-                        </div>
-                        <span asp-validation-for="CatID" class="text-danger"></span>
-
-                        <div class="input-field">
-                            <label asp-for="SubCatID">Sub Category ID</label>
-                            <input asp-for="SubCatID" type="text" placeholder="Enter Sub Category ID" />
-                        </div>
-                        <span asp-validation-for="SubCatID" class="text-danger"></span>
-
-                        <div class="input-field">
                             <label asp-for="Itemname">Item Name</label>
                             <input asp-for="Itemname" type="text" placeholder="Enter Item Name" />
                         </div>
                         <span asp-validation-for="Itemname" class="text-danger"></span>
 
                         <div class="input-field">
-                            <label asp-for="Unit">Unit</label>
-                            <input asp-for="Unit" type="text" placeholder="Enter Unit" />
+                            <label asp-for="CategoryName">Category Name</label>
+                            <select asp-for="CategoryName" asp-items="ViewBag.CategoryName" class="form-select">
+                                <option value="CategoryName">--Category Name--</option>
+                            </select>
                         </div>
-                        <span asp-validation-for="Unit" class="text-danger"></span>
+                        <span asp-validation-for="CategoryName" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="SubCategoryName">Sub Category Name</label>
+                            <select asp-for="SubCategoryName" asp-items="ViewBag.SubCategoryName" class="form-select">
+                                <option value="SubCategoryName">--Sub Category Name--</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="SubCategoryName" class="text-danger"></span>
+
+                        <div class="input-field">
+                            <label asp-for="UnitName">Unit Name</label>
+                            <select asp-for="UnitName" asp-items="ViewBag.UnitName" class="form-select">
+                                <option value="UnitName">-- Unit Name--</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="UnitName" class="text-danger"></span>
+
+
+                        <div class="input-field">
+                            <label asp-for="Code">Code</label>
+                            <input asp-for="Code" type="text" placeholder="Enter Code" />
+                        </div>
+                        <span asp-validation-for="Code" class="text-danger"></span>
 
                         <div class="input-field">
                             <label asp-for="Description">Description</label>
