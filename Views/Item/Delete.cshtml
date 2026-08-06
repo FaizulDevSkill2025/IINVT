@@ -4,57 +4,89 @@
     ViewData["Title"] = "Delete";
 }
 
-<link href="~/css/customer.css" rel="stylesheet" />
-
 
 <body>
     <div>
 
         <h4>Item Information</h4>
 
-        <hr />
+        <hr /> 
 
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.ItemID)
-            </dt>
-            <dt class="col-sm-10">
-                @Html.DisplayFor(model => model.ItemID)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CategoryID)
-            </dt>
-            <dt class="col-sm-10">
-                @Html.DisplayFor(model => model.CategoryID)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SubCategoryID)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.SubCategoryID)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Itemname)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Itemname)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
+        <div class="container mt-4">
 
-        </dl>
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-danger text-white">
+                    <h3>
+                        <i class="fas fa-trash-alt"></i>
+                        Delete Item
+                    </h3>
+                </div>
 
-        <form asp-action="Delete" method="post" onsubmit="return confirm('Are You Sure ? You Want to Delete this Record !');">
-            <input type="hidden" asp-for="ItemID" />
-            <div class="button" asp-action="Delete">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-                <a asp-action="Index" class="btn btn-success">Back to List</a>
+                <div class="card-body">
+
+                    <table class="table table-bordered table-hover">
+
+                        <tr>
+                            <th width="25%">Item ID</th>
+                            <td>@Model.ItemID</td>
+                        </tr>
+
+                        <tr>
+                            <th>Item Name</th>
+                            <td>@Model.Itemname</td>
+                        </tr>
+
+                        <tr>
+                            <th>Category</th>
+                            <td>
+                                <span class="badge bg-primary">
+                                    @Model.CategoryName
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Sub Category Name</th>
+                            <td>
+                                <span class="badge bg-success">
+                                    @Model.SubCategoryName
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Code</th>
+                            <td>@Model.Code</td>
+                        </tr>
+
+                        <tr>
+                            <th>Description</th>
+                            <td>@Model.Description</td>
+                        </tr>
+
+                    </table>
+
+                    <form asp-action="Delete" method="post" onsubmit="return confirm('Are You Sure ? You Want to Delete this Record !');">
+                       
+                        <input type="hidden" asp-for="ItemID" />
+
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button>
+
+                        <a asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to List
+                        </a>
+
+                    </form>
+
+                </div>
+
             </div>
-        </form>
+
+        </div>
 
     </div>
 </body>

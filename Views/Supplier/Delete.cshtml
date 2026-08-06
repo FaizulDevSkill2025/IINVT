@@ -4,8 +4,6 @@
     ViewData["Title"] = "Delete";
 }
 
-<link href="~/css/customer.css" rel="stylesheet" />
-
 
 <body>
     <div>
@@ -14,58 +12,86 @@
 
         <hr />
 
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.SupplierID)
-            </dt>
-            <dt class="col-sm-10">
-                @Html.DisplayFor(model => model.SupplierID)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Code)
-            </dt>
-            <dt class="col-sm-10">
-                @Html.DisplayFor(model => model.Code)
-            </dt>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Type)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Type)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Address)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Address)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Phone)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Phone)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-        </dl>
+        <div class="container mt-4">
 
-        <form asp-action="Delete" method="post" onsubmit="return confirm('Are You Sure ? You Want to Delete this Record !');">
-            <input type="hidden" asp-for="SupplierID" />
-            <div class="button" asp-action="Delete">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-danger text-white">
+                    <h3>
+                        <i class="fas fa-trash-alt"></i>
+                        Delete Supplier
+                    </h3>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-bordered table-hover">
+
+                        <tr>
+                            <th width="25%">Supplier ID</th>
+                            <td>@Model.SupplierID</td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplier Code</th>
+                            <td>@Model.Code</td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplier Name</th>
+                            <td>
+                                <span class="badge bg-primary">
+                                    @Model.Name
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplier Type</th>
+                            <td>
+                                <span class="badge bg-success">
+                                    @Model.Type
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplier Address</th>
+                            <td>@Model.Address</td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplier Phone</th>
+                            <td>@Model.Phone</td>
+                        </tr>
+
+                        <tr>
+                            <th>Supplier Email</th>
+                            <td>@Model.Email</td>
+                        </tr>
+
+                    </table>
+
+                    <form asp-action="Delete" method="post" onsubmit="return confirm('Are You Sure ? You Want to Delete this Record !');">
+
+                        <input type="hidden" asp-for="SupplierID" />
+
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button>
+
+                        <a asp-action="Index" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to List
+                        </a>
+
+                    </form>
+
+                </div>
+
             </div>
-        </form>
+
+        </div>
 
     </div>
 </body>

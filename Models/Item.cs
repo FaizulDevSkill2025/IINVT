@@ -17,7 +17,7 @@ namespace IINVT.Models
         public int CategoryID { get; set; } 
 
 
-        [Display(Name = "Subcategory ID")]
+        [Display(Name = "Sub Category ID")]
         public int SubCategoryID { get; set; } [ForeignKey("SubCategoryID")]
 
         [Display(Name = "Unit ID")]
@@ -34,7 +34,7 @@ namespace IINVT.Models
         public string CategoryName { get; set; }
 
 
-        [Display(Name = "Subcategory Name")]
+        [Display(Name = "Sub Category Name")]
         public string SubCategoryName { get; set; }
 
 
