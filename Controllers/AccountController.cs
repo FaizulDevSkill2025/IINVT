@@ -66,6 +66,8 @@ namespace IINVT.Controllers
             {
                 FullName = model.Name,
                 UserName = model.Email,
+                PhoneNumber = model.Phone,
+                Residence = model.Residence,
                 NormalizedUserName = model.Email.ToUpper(),
                 Email = model.Email,
                 NormalizedEmail = model.Email.ToUpper()

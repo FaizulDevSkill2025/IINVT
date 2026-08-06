@@ -6,8 +6,147 @@
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
+<style>
 
-<div class="account-container">
+    .container {
+        background-image: url('../img/inv-2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: repeat-y;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 1rem 0;
+    }
+
+</style>
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <div class="card shadow-lg border-0 rounded-4" style="max-width:500px; width:100%;">
+        <div class="card-header bg-success text-white text-center rounded-top-4 py-4">
+            <h2 class="mb-0">
+                <i class="bi bi-person-plus-fill me-2"></i>
+                Create Account
+            </h2>
+          
+        </div>
+
+        <div class="card-body p-4">
+
+            <form asp-action="Register" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-bold"></label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                        <input asp-for="Name" class="form-control" placeholder="Enter your full name">
+                    </div>
+
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Residence -->
+                <div class="mb-3">
+                    <label asp-for="Residence" class="form-label fw-bold"></label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </span>
+                        <input asp-for="Residence" class="form-control" placeholder="Enter your address">
+                    </div>
+
+                    <span asp-validation-for="Residence" class="text-danger"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label asp-for="Phone" class="form-label fw-bold"></label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-telephone-fill"></i>
+                        </span>
+                        <input asp-for="Phone" class="form-control" placeholder="01XXXXXXXXX">
+                    </div>
+
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label fw-bold"></label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-envelope-fill"></i>
+                        </span>
+                        <input asp-for="Email" class="form-control" placeholder="example@email.com">
+                    </div>
+
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label fw-bold"></label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-lock-fill"></i>
+                        </span>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Enter Password">
+                    </div>
+
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-4">
+                    <label asp-for="ConfirmPassword" class="form-label fw-bold"></label>
+
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-shield-lock-fill"></i>
+                        </span>
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+                    </div>
+
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <button class="btn btn-success w-100 py-2 rounded-3">
+                    <i class="bi bi-person-check-fill me-2"></i>
+                    Create Account
+                </button>
+
+                <div class="text-center mt-4">
+                    Already have an account?
+                    <a asp-action="Login"
+                       asp-controller="Account"
+                       class="text-success fw-bold text-decoration-none">
+                        Login
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@* <div class="account-container">
     <div class="account-box">
         <h2 class="text-center mb-4">Register</h2>
         <form asp-action="Register" method="post">
@@ -17,6 +156,16 @@
                 <label asp-for="Name" class="form-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Residence" class="form-label"></label>
+                <input asp-for="Residence" class="form-control" />
+                <span asp-validation-for="Residence" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Email" class="form-label"></label>
@@ -36,13 +185,10 @@
             <input type="submit" value="Register" class="btn btn-success w-100 p-2" />
             <p class="text-center mt-2">
                 Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Login</a>
-            </p>
-            @* <div class="text-center">
-                <a asp-controller="Home" asp-action="Index" class="text-decoration-none mt-3">Back</a>
-            </div> *@
+            </p>       
         </form>
     </div>
-</div>
+</div> *@
 
 @section Scripts {
     @{
